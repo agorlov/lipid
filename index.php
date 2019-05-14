@@ -70,7 +70,6 @@ class ApplicationStd implements App
             //echo $this->response->body();
 
             //$this->response->handle()
-
         } catch (NotFoundException $e) {
             header("Status: 404 Not Found");
             echo '404! ' . $e->getMessage(); //$twig->render('404.twig', ['message' => $e->getMessage()]);
@@ -103,8 +102,8 @@ class RespStd implements Response
     private $body;
     public function __construct($body = '', $headers = [])
     {
-      $this->body = $body;
-      $this->headers = $headers;
+        $this->body = $body;
+        $this->headers = $headers;
     }
 
     public function withBody(string $body): Response
@@ -128,7 +127,8 @@ class RespStd implements Response
     }
 }
 
-class RqSERVER implements Request {
+class RqSERVER implements Request
+{
 
     private $request;
 
@@ -217,7 +217,8 @@ class AppSession implements Session
         session_commit();
     }
 
-    private function sessionStart() {
+    private function sessionStart()
+    {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -285,8 +286,7 @@ class ActLogin implements Action
     public function __construct(
         Session $sess = null,
         Action $redirect = null // Request $req = null , PDO $db, Config $config, Env $env, Session $sess, Tpl $tpl
-    )
-    {
+    ) {
         $this->session = $sess ?? new AppSession;
         $this->redirect = $redirect ?? new ActRedirect('/lk');
 //        $this->rqGet = $req ?? new RqGET();
@@ -298,13 +298,12 @@ class ActLogin implements Action
 
     public function handle(Response $resp): Response
     {
-        if (true) //  login and password ok
-        {
+        if (true) { //  login and password ok
             $this->session->set('login', 'user1');
             return $this->redirect->handle($resp);
         } else {
             return $this->response->withBody(
-                    "Bad login or password."
+                "Bad login or password."
             );
         }
     }
@@ -319,8 +318,7 @@ class ActLogout implements Action
     public function __construct(
         Session $sess = null,
         Action $redirect = null // Request $req = null , PDO $db, Config $config, Env $env, Session $sess, Tpl $tpl
-    )
-    {
+    ) {
         $this->session = $sess ?? new AppSession;
         $this->redirect = $redirect ?? new ActRedirect('/');
 //        $this->rqGet = $req ?? new RqGET();
@@ -332,14 +330,13 @@ class ActLogout implements Action
 
     public function handle(Response $resp): Response
     {
-        if ($this->session->exists('login')) //  login and password ok
-        {
+        if ($this->session->exists('login')) { //  login and password ok
             $this->session->unset('login');
             return $this->redirect->handle($resp);
         }
 
         return $this->response->withBody(
-                "You are not logged in."
+            "You are not logged in."
         );
     }
 }
@@ -354,8 +351,7 @@ class ActLk implements Action
     public function __construct(
         Session $sess = null
         //Action $redirect = null // Request $req = null , PDO $db, Config $config, Env $env, Session $sess, Tpl $tpl
-    )
-    {
+    ) {
         $this->sess = $sess ?? new AppSession;
         //$this->redirect = $redirect ?? new ActRedirect('/');
 //        $this->rqGet = $req ?? new RqGET();
@@ -367,8 +363,7 @@ class ActLk implements Action
 
     public function handle(Response $resp): Response
     {
-        if (! $this->sess->exists('login')) //  login and password ok
-        {
+        if (! $this->sess->exists('login')) { //  login and password ok
             throw new AccessDeniedException('Only Authorized Access');
         }
 
@@ -388,13 +383,11 @@ class ActLk implements Action
         '/lk' => new ActLk(),
     ],
     new RespStd // AppResponse
-/*
+    /*
     new class() implements Request {
-        public function param($param) {
-          return '/login';
-        }
+    public function param($param) {
+    return '/login';
     }
-*/
+    }
+    */
 ))->start();
-
-
