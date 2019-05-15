@@ -1,5 +1,18 @@
 <?php
 
+require_once './vendor/autoload.php';
+
+use AG\WebApp\App;
+use AG\WebApp\AccessDeniedException;
+use AG\WebApp\NotFoundException;
+use AG\WebApp\ApplicationStd;
+use AG\WebApp\Request;
+use AG\WebApp\Request\RqGET;
+use AG\WebApp\Request\RqPOST;
+use AG\WebApp\Response;
+use AG\WebApp\Response\RespStd;
+use AG\WebApp\Action;
+use AG\WebApp\Session;
 
 /**
  * Object MVC Prototype
@@ -16,178 +29,12 @@
 // $db
 
 
-interface App
-{
-    public function start(): void;
-}
-
-class NotFoundException extends Exception
-{
-}
-
-class AccessDeniedException extends Exception
-{
-}
-
-
-class ApplicationStd implements App
-{
-    private $actions;
-    private $SERVER;
-
-    /**
-     * Application constructor.
-     *
-     * @param Response|array $action
-     */
-    public function __construct(array $actions, Response $response = null, Request $SERVER = null)
-    {
-
-        $this->SERVER = $SERVER ?? new RqSERVER();
-        $this->actions = $actions;
-        $this->response = $response; // ?? new AppResponse;
-    }
-
-    public function start(): void
-    {
-        try {
-            $requestUri = $this->SERVER->param('REQUEST_URI');
-
-            if (! array_key_exists($requestUri, $this->actions)) {
-                throw new NotFoundException('Page=' . $requestUri . ' not found in actions list!');
-            }
-
-            $resp = $this->actions[$requestUri]->handle($this->response);
-            $resp->print();
-          
-
-            //foreach ($this->response->headers() as $header) {
-            //    header($header);
-            //}
-
-            //if ()
-
-            //echo $this->response->body();
-
-            //$this->response->handle()
-        } catch (NotFoundException $e) {
-            header("Status: 404 Not Found");
-            echo '404! ' . $e->getMessage(); //$twig->render('404.twig', ['message' => $e->getMessage()]);
-        } catch (AccessDeniedException $e) {
-            header("Status: 403 Access denied");
-            echo '403! ' . $e->getMessage(); //$twig->render('403.twig', ['message' => $e->getMessage()]);
-        } catch (Exception $e) {
-            header("Status: 500 Application Error");
-            echo "<h1>Error</h1>";
-            echo "<pre>" . $e . "</pre>";
-        }
-    }
-}
-
-interface Request
-{
-    public function param($param);
-}
-
-interface Response
-{
-    public function print(): void;
-    public function withBody(string $body): Response;
-    public function withHeaders(array $headers): Response;
-}
-
-class RespStd implements Response
-{
-    private $headers;
-    private $body;
-    public function __construct($body = '', $headers = [])
-    {
-        $this->body = $body;
-        $this->headers = $headers;
-    }
-
-    public function withBody(string $body): Response
-    {
-        return new self($body, $this->headers);
-    }
-
-    public function withHeaders(array $headers): Response
-    {
-        return new self($this->body, $headers);
-    }
-
-
-    public function print(): void
-    {
-        foreach ($this->headers as $header) {
-            header($header);
-        }
-
-        echo $this->body;
-    }
-}
-
-class RqSERVER implements Request
-{
-
-    private $request;
-
-    public function __construct(array $request = null)
-    {
-        $this->request = $request ?? $_SERVER;
-    }
-
-    public function param($param)
-    {
-        return $this->request[$param] ?? null;
-    }
-}
-
-class RqGET implements Request
-{
-    private $request;
-
-    public function __construct(array $request = null)
-    {
-        $this->request = $request ?? $_GET;
-    }
-
-    public function param($param)
-    {
-        return $this->request[$param] ?? null;
-    }
-}
-
-class RqPOST implements Request
-{
-    private $request;
-
-    public function __construct(array $request = null)
-    {
-        $this->request = $request ?? $_POST;
-    }
-
-    public function param($param)
-    {
-        return $this->request[$param] ?? null;
-    }
-}
-
 interface Config
 {
     //...
 }
 
-interface Session
-{
-    public function exists($param): bool;
 
-    public function get($param);
-
-    public function set($param, $value): void;
-
-    public function unset($param): void;
-}
 
 class AppSession implements Session
 {
@@ -233,12 +80,6 @@ class AppPDO extends PDO
     }
 }
 
-
-interface Action
-{
-    public function handle(Response $resp): Response;
-}
-
 class ActIndex implements Action
 {
     private $rqGet;
@@ -255,7 +96,10 @@ class ActIndex implements Action
 
     public function handle(Response $resp): Response
     {
-        return $resp->withBody("Hello, World 2!");
+        return $resp->withBody(
+            "Hello, World 2!<br>" . 
+            '<a href="/login">login</a>'
+        );
     }
 }
 
@@ -368,7 +212,8 @@ class ActLk implements Action
         }
 
         return $resp->withBody(
-            "Hello: " . $this->sess->get('login')
+            "Hello: " . $this->sess->get('login') . "<br>" .
+            '<a href="/logout">logout</a>'
         );
     }
 }
