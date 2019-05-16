@@ -19,7 +19,8 @@
 
     "autoload": {
         "psr-4": {
-            "AG\\WebApp\\": "src"
+            "AG\\WebApp\\": "src",
+            "ExampleApp\\": "./"
         }
     },
     "scripts": {
