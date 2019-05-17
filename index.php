@@ -24,13 +24,14 @@ use AG\WebApp\Session;
 use AG\WebApp\Session\AppSession;
 
 use ExampleApp\ActIndex;
+use ExampleApp\ActIndexTwig;
 use ExampleApp\ActLogin;
 use ExampleApp\ActLogout;
 use ExampleApp\ActLk;
 
 (new ApplicationStd(
     [
-        '/' => new ActIndex(),
+        '/' => new ActIndexTwig(),
         '/login' => new ActLogin(),
         '/logout' => new ActLogout(),
         '/lk' => new ActLk(),

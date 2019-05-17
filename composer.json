@@ -9,8 +9,12 @@
             "email": "a.gorlov@gmail.com"
         }
     ],
+    "support": {
+        "issues": "https://github.com/agorlov/ObjectMVC/issues"
+    },    
     "require": {
-        "php": ">= 7.1"
+        "php": ">= 7.1",
+        "twig/twig": "^2.0"
     },
     "require-dev": {
         "codeception/codeception": "^2.5.1",
@@ -18,8 +22,10 @@
     },
 
     "autoload": {
+        "classmap": [
+            "src/"
+        ],
         "psr-4": {
-            "AG\\WebApp\\": "src",
             "ExampleApp\\": "./"
         }
     },
