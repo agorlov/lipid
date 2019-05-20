@@ -23,13 +23,17 @@
 
     "autoload": {
         "classmap": [
-            "src/"
+            "src/",
+            "example/"
         ],
-        "psr-4": {
+        "__comment:psr-4": {
             "ExampleApp\\": "./"
         }
     },
     "scripts": {
+        "example" : [
+            "php -S localhost:8000 -t example/"
+        ],
         "phpcs": [
             "phpcs --standard=PSR2 --colors src/"
         ],

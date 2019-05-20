@@ -1,5 +1,15 @@
 # ObjectMVC
+
 PHP Object MVC microframework for web apps
+
+## Quickstart
+
+1. Clone repository
+2. ``$ composer install``
+3. ``$ composer dump-autoload``
+4. ``$ composer example``
+5. open browser: http://localhost:8000/
+6. look at the source code: example/ directory.
 
 # Example Application
 

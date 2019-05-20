@@ -7,7 +7,7 @@
  * @author Alexandr Gorlov <a.gorlov@gmail.com>
  */
 
-require_once './vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 use AG\WebApp\App;
 use AG\WebApp\AccessDeniedException;
