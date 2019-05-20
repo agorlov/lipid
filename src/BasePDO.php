@@ -3,6 +3,7 @@
 namespace AG\WebApp;
 
 use PDO;
+use PDOStatement;
 
 /**
  * BasePDO - decorator with lazy load
@@ -65,12 +66,12 @@ class BasePDO extends PDO
         return $this->pdo()->errorInfo();
     }
 
-    public function exec(string $statement) : int
+    public function exec($query) : int
     {
-        return $this->pdo()->exec($statement);
+        return $this->pdo()->exec($query);
     }
 
-    public function getAttribute(int $attribute) : mixed
+    public function getAttribute($attribute)
     {
         return $this->pdo()->getAttribute($attribute);
     }
@@ -80,12 +81,12 @@ class BasePDO extends PDO
         return $this->pdo()->inTransaction();
     }
 
-    public function lastInsertId(string $name = null) : string
+    public function lastInsertId($seqname = null): string
     {
         return $this->pdo()->lastInsertId($name);
     }
 
-    public function prepare(string $statement, array $driver_options = array()): PDOStatement
+    public function prepare($statement, $driver_options = null): PDOStatement
     {
         return $this->pdo()->prepare($statement, $driver_options);
     }
@@ -95,7 +96,7 @@ class BasePDO extends PDO
         return $this->pdo()->query($statement);
     }
 
-    public function quote(string $string, int $parameter_type = PDO::PARAM_STR) : string
+    public function quote($string, $paramtype = null)
     {
         return $this->pdo()->quote($string, $parameter_type);
     }
@@ -105,7 +106,7 @@ class BasePDO extends PDO
         return $this->pdo()->rollBack();
     }
 
-    public function setAttribute(int $attribute, mixed $value) : bool
+    public function setAttribute($attribute, $value) : bool
     {
         return $this->pdo()->setAttribute($attribute, $value);
     }
