@@ -35,10 +35,10 @@
             "php -S localhost:8000 -t example/"
         ],
         "phpcs": [
-            "phpcs --standard=PSR2 --colors src/"
+            "phpcs --standard=PSR2 --colors --ignore=example/cache/ src/ example/"
         ],
         "phpcs-fix": [
-            "phpcbf --standard=PSR2 src/"
+            "phpcbf --standard=PSR2 --ignore=example/cache/ src/ example/ "
         ]
     }    
 }

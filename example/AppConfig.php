@@ -17,14 +17,15 @@ class AppConfig implements Config
     {
         $this->cfg = $cfg ?? new CfgArr([
             // DB Connection
-            'dbhost' => 'localhost',
+            'dbhost' => '127.0.0.1',
             'dbname' => 'glavpunkt',
             'dbuser' => 'glavpunkt',
             'dbpass' => 'glavpunkt',
         ]);
     }
 
-    public function param(string $name) {
+    public function param(string $name)
+    {
         return $this->cfg->param($name);
     }
 }

@@ -2,7 +2,7 @@
 
 
 /**
- * Object MVC Example app 
+ * Object MVC Example app
  *
  * @author Alexandr Gorlov <a.gorlov@gmail.com>
  */

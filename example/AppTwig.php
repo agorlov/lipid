@@ -5,7 +5,8 @@ namespace ExampleApp;
 use AG\WebApp\Tpl;
 use AG\WebApp\Tpl\Twig;
 
-class AppTwig implements Tpl {
+class AppTwig implements Tpl
+{
     
     private $tpl;
 
@@ -16,7 +17,7 @@ class AppTwig implements Tpl {
             new \Twig\Environment(
                 new \Twig\Loader\FilesystemLoader(
                     __DIR__ . '/tpl'
-                ), 
+                ),
                 [
                     'cache' => __DIR__ . '/cache',
                     'debug' =>  true // @todo application mode Development or Production

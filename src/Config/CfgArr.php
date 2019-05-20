@@ -13,11 +13,13 @@ final class CfgArr implements Config
 {
     private $cfgArr;
 
-    public function __construct(array $cfg) {
+    public function __construct(array $cfg)
+    {
         $this->cfgArr = $cfg;
     }
 
-    public function param($name) {
+    public function param($name)
+    {
         if (! array_key_exists($name, $this->cfgArr)) {
             throw new \Exception("Parameter '$name' not declared in config.");
         }

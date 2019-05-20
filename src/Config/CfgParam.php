@@ -11,24 +11,27 @@ use AG\WebApp\Config;
  * or
  * new CfgParam('key', Config)->val(): string;
  *
- * @todo Doubtful usefulness of this object. 
+ * @todo Doubtful usefulness of this object.
  * @author agorlov
  */
-class CfgParam // implements string 
+class CfgParam // implements string
 {
     private $key;
     private $cfg;
 
-    public function __construct($key, Config $cfg) {
+    public function __construct($key, Config $cfg)
+    {
         $this->key = $key;
         $this->cfg = $cfg;
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return $this->val();
     }
 
-    public function val() {
+    public function val()
+    {
         return $this->cfg->param($this->key);
-    }    
+    }
 }

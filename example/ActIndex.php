@@ -9,7 +9,7 @@ use AG\WebApp\Response;
 
 /**
  * Start page of example app.
- * 
+ *
  * @author Alexandr Gorlov <a.gorlov@gmail.com>
  */
 class ActIndex implements Action
@@ -26,7 +26,7 @@ class ActIndex implements Action
         $test = $this->rqGet->param('test') ?? 'nope';
 
         return $resp->withBody(
-            "Hello, World 2!<br>" . 
+            "Hello, World 2!<br>" .
             '<a href="/login">login</a><br>' .
             '$_GET[test]=' . htmlentities($test)
         );

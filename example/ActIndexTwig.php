@@ -11,7 +11,7 @@ use ExampleApp\AppTwig;
 
 /**
  * Start page of example app.
- * 
+ *
  * @author Alexandr Gorlov <a.gorlov@gmail.com>
  */
 class ActIndexTwig implements Action
@@ -31,7 +31,7 @@ class ActIndexTwig implements Action
         
 
         return $resp->withBody(
-            $this->tpl->render([ 
+            $this->tpl->render([
                 'date' => new \DateTime('now'),
                 'test' => $test
             ])
