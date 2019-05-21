@@ -16,12 +16,12 @@ final class ApplicationStdTest extends TestCase
 
         $response = new class() implements Response
         {
-            private $body;
-            private $headers;
+            public $printCallCount = 0;
+            public $body;
+
             public function print(): void
             {
-                // echo "print() is called!";
-                // @todo assert here, that this method is called
+                $this->printCallCount++;
             }
             public function withBody(string $body): Response
             {
@@ -30,7 +30,6 @@ final class ApplicationStdTest extends TestCase
             }
             public function withHeaders(array $headers): Response
             {
-                $this->headers = $headers;
                 return $this;
             }
         };
@@ -57,9 +56,7 @@ final class ApplicationStdTest extends TestCase
             $request
         ))->start();
 
-        // $this->assertInstanceOf(
-        //     Email::class,
-        //     Email::fromString('user@example.com')
-        // );
+        $this->assertEquals(1, $response->printCallCount);
+        $this->assertEquals('Hello!', $response->body);
     }
 }
