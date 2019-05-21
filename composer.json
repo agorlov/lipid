@@ -17,8 +17,8 @@
         "twig/twig": "^2.0"
     },
     "require-dev": {
-        "codeception/codeception": "^2.5.1",
-        "squizlabs/php_codesniffer": "^3.4"
+        "squizlabs/php_codesniffer": "^3.4",
+        "phpunit/phpunit": "^8"
     },
 
     "autoload": {
@@ -39,6 +39,9 @@
         ],
         "phpcs-fix": [
             "phpcbf --standard=PSR2 --ignore=example/cache/ src/ example/ "
+        ],
+        "test": [
+            "vendor/bin/phpunit --bootstrap ./tests/bootstrap.php --testdox --color -v tests/"
         ]
     }    
 }
