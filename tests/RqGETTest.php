@@ -1,38 +1,31 @@
 <?php
-// declare(strict_types=1);
+declare(strict_types=1);
 
 namespace AG\WebApp\Request;
 
 use PHPUnit\Framework\TestCase;
-use AG\WebApp\Request;
 use AG\WebApp\Request\RqGET;
 
+/**
+ * RqGET Test
+ *
+ * @author agorlov
+ */
 final class RqGETTest extends TestCase
 {
     public function testGetParamValue(): void
-    {
-        echo "ASDFASDFASDF\n";
-        $this->assertEquals(1, 1);
-
-        $rqGET = new RqGET();
-
-        // @todo complete this test
-
-
-
-
-
-        // $action = new class() implements Action
-        // {
-        //     public function handle(Response $resp): Response
-        //     {
-        //         return $resp->withBody('Hello!');
-        //     }
-        // };
-
-        // $this->assertInstanceOf(
-        //     Email::class,
-        //     Email::fromString('user@example.com')
-        // );
+    {        
+        $this->assertEquals(
+            123,
+            (new RqGET(['test' => '123']))->param('test')
+        );
     }
+
+    public function testGetParamNull(): void
+    {        
+        $this->assertEquals(
+            null,
+            (new RqGET(['test' => '123']))->param('test123')
+        );
+    }    
 }
