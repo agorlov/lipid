@@ -1,7 +1,7 @@
 <?php
 // declare(strict_types=1);
 
-//namespace AG\WebApp;
+namespace AG\WebApp;
 
 use PHPUnit\Framework\TestCase;
 use AG\WebApp\ApplicationStd;
@@ -18,16 +18,18 @@ final class ApplicationStdTest extends TestCase
         {
             private $body;
             private $headers;
-            public function print(): void {
+            public function print(): void
+            {
                 // echo "print() is called!";
                 // @todo assert here, that this method is called
             }
-            public function withBody(string $body): Response {
+            public function withBody(string $body): Response
+            {
                 $this->body = $body;
                 return $this;
-
             }
-            public function withHeaders(array $headers): Response {
+            public function withHeaders(array $headers): Response
+            {
                 $this->headers = $headers;
                 return $this;
             }

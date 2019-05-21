@@ -1,7 +1,7 @@
 <?php
 // declare(strict_types=1);
 
-//namespace AG\WebApp;
+namespace AG\WebApp\Request;
 
 use PHPUnit\Framework\TestCase;
 use AG\WebApp\Request;
