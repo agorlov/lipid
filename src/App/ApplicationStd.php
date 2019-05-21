@@ -1,9 +1,14 @@
 <?php
 
-namespace AG\WebApp;
+namespace AG\WebApp\App;
 
 use Exception;
+use AG\WebApp\App;
+use AG\WebApp\Response;
+use AG\WebApp\Request;
 use AG\WebApp\Request\RqSERVER;
+use AG\WebApp\NotFoundException;
+use AG\WebApp\AccessDeniedException;
 
 class ApplicationStd implements App
 {

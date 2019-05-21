@@ -18,8 +18,7 @@ use PDOStatement;
  */
 class BasePDO extends PDO
 {
-    private static $cachedPDO;
-
+    
     private $config;
 
     public function __construct(Config $config)
@@ -29,21 +28,22 @@ class BasePDO extends PDO
 
     public function pdo()
     {
-        if ($this->cachedPDO) {
-            return $this->cachePDO;
+        static $cachedPDO;
+        if ($cachedPDO) {
+            return $cachePDO;
         }
 
         $config = $this->config;
-        $this->cachedPDO = new PDO(
+        $cachedPDO = new PDO(
             "mysql:dbname={$config->param('dbname')};host={$config->param('dbhost')}",
             $config->param('dbuser'),
             $config->param('dbpass')
         );
 
-        $this->cachedPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $this->cachedPDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $cachedPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $cachedPDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         //$this->exec('SET NAMES utf8');
-        return $this->cachedPDO;
+        return $cachedPDO;
     }
 
     public function beginTransaction(): bool

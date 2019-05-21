@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Object MVC Example app
  *
@@ -9,21 +8,8 @@
 
 require_once '../vendor/autoload.php';
 
-use AG\WebApp\App;
-use AG\WebApp\AccessDeniedException;
-use AG\WebApp\NotFoundException;
-use AG\WebApp\ApplicationStd;
-use AG\WebApp\Request;
-use AG\WebApp\Request\RqGET;
-use AG\WebApp\Request\RqPOST;
-use AG\WebApp\Response;
+use AG\WebApp\App\ApplicationStd;
 use AG\WebApp\Response\RespStd;
-use AG\WebApp\Action;
-use AG\WebApp\Action\ActRedirect;
-use AG\WebApp\Session;
-use AG\WebApp\Session\AppSession;
-
-use ExampleApp\ActIndex;
 use ExampleApp\ActIndexTwig;
 use ExampleApp\ActLogin;
 use ExampleApp\ActLogout;
