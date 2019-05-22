@@ -4,7 +4,7 @@ namespace AG\WebApp\Request;
 
 use AG\WebApp\Request;
 
-class RqSERVER implements Request
+final class RqSERVER implements Request
 {
 
     private $request;

@@ -14,7 +14,7 @@ use AG\WebApp\Config;
  * @todo Doubtful usefulness of this object.
  * @author agorlov
  */
-class CfgParam // implements string
+final class CfgParam // implements string
 {
     private $key;
     private $cfg;

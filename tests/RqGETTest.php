@@ -14,7 +14,7 @@ use AG\WebApp\Request\RqGET;
 final class RqGETTest extends TestCase
 {
     public function testGetParamValue(): void
-    {        
+    {
         $this->assertEquals(
             123,
             (new RqGET(['test' => '123']))->param('test')
@@ -22,10 +22,10 @@ final class RqGETTest extends TestCase
     }
 
     public function testGetParamNull(): void
-    {        
+    {
         $this->assertEquals(
             null,
             (new RqGET(['test' => '123']))->param('test123')
         );
-    }    
+    }
 }

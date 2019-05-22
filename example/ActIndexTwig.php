@@ -14,7 +14,7 @@ use ExampleApp\AppTwig;
  *
  * @author Alexandr Gorlov <a.gorlov@gmail.com>
  */
-class ActIndexTwig implements Action
+final class ActIndexTwig implements Action
 {
     private $rqGet;
     private $tpl;

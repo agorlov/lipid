@@ -3,7 +3,7 @@ namespace AG\WebApp\Request;
 
 use AG\WebApp\Request;
 
-class RqPOST implements Request
+final class RqPOST implements Request
 {
     private $request;
 

@@ -3,6 +3,6 @@ namespace AG\WebApp;
 
 use Exception;
 
-class AccessDeniedException extends Exception
+final class AccessDeniedException extends Exception
 {
 }

@@ -10,7 +10,7 @@ use AG\WebApp\Response;
 use AG\WebApp\Session;
 use AG\WebApp\Session\AppSession;
 
-class ActLogout implements Action
+final class ActLogout implements Action
 {
     private $session;
     private $redirect;

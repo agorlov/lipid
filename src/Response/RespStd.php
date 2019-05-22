@@ -3,7 +3,7 @@ namespace AG\WebApp\Response;
 
 use AG\WebApp\Response;
 
-class RespStd implements Response
+final class RespStd implements Response
 {
     private $headers;
     private $body;

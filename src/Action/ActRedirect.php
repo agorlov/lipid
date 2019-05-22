@@ -5,7 +5,7 @@ namespace AG\WebApp\Action;
 use AG\WebApp\Action;
 use AG\WebApp\Response;
 
-class ActRedirect implements Action
+final class ActRedirect implements Action
 {
     private $url;
 

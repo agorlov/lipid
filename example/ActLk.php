@@ -13,7 +13,7 @@ use AG\WebApp\Config\CfgParam;
 //use AG\WebApp\AccessDeniedException;
 use PDO;
 
-class ActLk implements Action
+final class ActLk implements Action
 {
     private $sess;
     private $config;
