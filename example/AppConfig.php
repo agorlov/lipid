@@ -10,7 +10,7 @@ use AG\WebApp\Config\CfgArr;
  *
  * @author agorlov
  */
-class AppConfig implements Config
+final class AppConfig implements Config
 {
     private $cfg;
     public function __construct(Config $cfg = null)

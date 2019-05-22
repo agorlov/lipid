@@ -10,7 +10,7 @@ use AG\WebApp\Request\RqSERVER;
 use AG\WebApp\NotFoundException;
 use AG\WebApp\AccessDeniedException;
 
-class ApplicationStd implements App
+final class ApplicationStd implements App
 {
     private $actions;
     private $SERVER;

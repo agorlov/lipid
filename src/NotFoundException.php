@@ -3,6 +3,6 @@ namespace AG\WebApp;
 
 use Exception;
 
-class NotFoundException extends Exception
+final class NotFoundException extends Exception
 {
 }

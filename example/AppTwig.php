@@ -5,7 +5,7 @@ namespace ExampleApp;
 use AG\WebApp\Tpl;
 use AG\WebApp\Tpl\Twig;
 
-class AppTwig implements Tpl
+final class AppTwig implements Tpl
 {
     
     private $tpl;

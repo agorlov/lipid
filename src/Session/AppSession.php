@@ -7,7 +7,7 @@ use AG\WebApp\Session;
 /**
  * @todo rename to SessionStd ?
  */
-class AppSession implements Session
+final class AppSession implements Session
 {
     public function exists($param): bool
     {

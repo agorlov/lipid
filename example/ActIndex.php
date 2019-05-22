@@ -12,7 +12,7 @@ use AG\WebApp\Response;
  *
  * @author Alexandr Gorlov <a.gorlov@gmail.com>
  */
-class ActIndex implements Action
+final class ActIndex implements Action
 {
     private $rqGet;
 

@@ -10,7 +10,7 @@ use AG\WebApp\Response;
 use AG\WebApp\Session;
 use AG\WebApp\Session\AppSession;
 
-class ActLogin implements Action
+final class ActLogin implements Action
 {
     private $session;
     private $redirect;
