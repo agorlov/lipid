@@ -2,16 +2,36 @@
 
 PHP Object MVC microframework for web apps
 
+
 ## Quickstart
 
-1. Clone repository
-2. ``$ composer install``
-3. ``$ composer dump-autoload``
-4. ``$ composer example``
-5. open browser: http://localhost:8000/
-6. look at the source code: example/ directory.
+Create app directory:
 
-# Example Application
+```sh
+$ mkdir testapp
+```
+
+Create ``composer.json`` with such code:
+```json
+{
+    "require": {
+        "agorlov/ObjectMVC": "master@dev"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:agorlov/ObjectMVC"
+        }
+    ]
+}
+```
+Run composer update:
+
+```
+$ composer update
+```
+
+Start with example app:
 
 index.php:
 ```php
@@ -25,6 +45,14 @@ index.php:
     new RespStd
 ))->start();
 ```
+
+Create your own Action:
+@todo ...
+
+Create your own Template:
+@todo ...
+
+
 
 ## Actions
 
@@ -91,3 +119,12 @@ public function __construct(
     $this->tpl = $tpl ?? new AppTpl
 }
 ```
+
+## Library development cycle
+
+1. Clone repository
+2. ``$ composer install``
+3. ``$ composer dump-autoload``
+4. ``$ composer example``
+5. open browser: http://localhost:8000/
+6. look at the source code: example/ directory.

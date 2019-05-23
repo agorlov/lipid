@@ -1,14 +1,16 @@
 {
     "name": "agorlov/ObjectMVC",
-    "description": "PHP Object MVC micro framework for web apps",
+    "description": "Object approach framework for web apps",
     "type": "library",
-    "license": "free",
+    "license": "MIT",
     "authors": [
         {
             "name": "Alexandr Gorlov",
             "email": "a.gorlov@gmail.com"
         }
     ],
+    "homepage": "https://github.com/agorlov/ObjectMVC",
+    "keywords": ["php", "library", "framework", "OOP", "web", "applications"],
     "support": {
         "issues": "https://github.com/agorlov/ObjectMVC/issues"
     },    
@@ -26,9 +28,6 @@
             "src/",
             "example/"
         ],
-        "__comment:psr-4": {
-            "ExampleApp\\": "./"
-        }
     },
     "scripts": {
         "example" : [
