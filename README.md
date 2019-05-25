@@ -120,6 +120,23 @@ public function __construct(
 }
 ```
 
+## Design principles
+
+1. True OOP: 
+  - each object is representation of domain term
+  - no static,
+  - small objects, 
+  - without extends, 
+  - wide use of decorators,
+  - strict piplene: unit tests, PSR2 checker, 
+  - 
+
+inspired by @yegor256 Elegant Objects
+
+2. Micro-format, like lipid is.
+
+3. 
+
 ## Library development cycle
 
 1. Clone repository
@@ -128,3 +145,22 @@ public function __construct(
 4. ``$ composer example``
 5. open browser: http://localhost:8000/
 6. look at the source code: example/ directory.
+
+7. Put some changes, create branch for issue:
+```
+$ git checkout -b 'Issue123'
+```
+
+8. Check and fix PSR2
+`` $ composer phpcs `` and `` $composer phpcs-fix ``
+
+9. Check by unit tests:
+```
+$ composer tests
+```
+
+10. commit, push and create PR.
+```
+git commit -m 'Thats was done closes #123' -a
+git push --set-upstream origin Issue123
+```
