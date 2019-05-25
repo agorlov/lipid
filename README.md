@@ -1,6 +1,6 @@
 # Lipid
 
-PHP Object MVC microframework for web apps
+Lipid is an objects designed microframework for PHP web apps.
 
 
 ## Quickstart
@@ -20,7 +20,7 @@ Create ``composer.json`` with such code:
     "repositories": [
         {
             "type": "vcs",
-            "url":  "git@github.com:agorlov/ObjectMVC"
+            "url":  "git@github.com:agorlov/lipid"
         }
     ]
 }
