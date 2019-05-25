@@ -53,10 +53,15 @@ final class ActRouted implements Action
             throw new Exception("Missing parameter REQUEST_URI in Request.");
         }
 
-        if (! array_key_exists($requestUri, $this->actionMap)) {
-            throw new NotFoundException('Link=' . $requestUri . ' is not found in actions list!');
+        $path = parse_url($requestUri)['path'];
+        if (strlen($path) > 1) {
+            $path = rtrim($path, '/');
         }
 
-        return $this->actionMap[$requestUri]->handle($resp);
+        if (! array_key_exists($path, $this->actionMap)) {
+            throw new NotFoundException('Path=' . $path . ' is not found in actions list!');
+        }
+
+        return $this->actionMap[$path]->handle($resp);
     }
 }
