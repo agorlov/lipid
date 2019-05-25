@@ -1,4 +1,4 @@
-# ObjectMVC
+# Lipid
 
 PHP Object MVC microframework for web apps
 
