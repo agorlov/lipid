@@ -24,7 +24,7 @@ final class ActRouted implements Action
      * Constructor.
      *
      * @param string|Request $path url path (examples: '/' '/page' '/api/list')
-     *                             or Request object, which contains REQUEST_URI param. 
+     *                             or Request object, which contains REQUEST_URI param.
      * @param array $actionMap list of application actions
      *     [
      *          '/' =>  new ActMain(),
@@ -53,10 +53,13 @@ final class ActRouted implements Action
             throw new Exception("Missing parameter REQUEST_URI in Request.");
         }
 
-        if (! array_key_exists($requestUri, $this->actionMap)) {
-            throw new NotFoundException('Link=' . $requestUri . ' is not found in actions list!');
+        $path = parse_url($requestUri)['path'];
+        $path = '/' . rtrim(substr($path, 1), '/');
+
+        if (! array_key_exists($path, $this->actionMap)) {
+            throw new NotFoundException('Path=' . $path . ' is not found in actions list!');
         }
 
-        return $this->actionMap[$requestUri]->handle($resp);
+        return $this->actionMap[$path]->handle($resp);
     }
 }
