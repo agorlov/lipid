@@ -1,5 +1,5 @@
 {
-    "name": "agorlov/ObjectMVC",
+    "name": "agorlov/lipid",
     "description": "Object approach framework for web apps",
     "type": "library",
     "license": "MIT",
@@ -9,10 +9,10 @@
             "email": "a.gorlov@gmail.com"
         }
     ],
-    "homepage": "https://github.com/agorlov/ObjectMVC",
+    "homepage": "https://github.com/agorlov/lipid",
     "keywords": ["php", "library", "framework", "OOP", "web", "applications"],
     "support": {
-        "issues": "https://github.com/agorlov/ObjectMVC/issues"
+        "issues": "https://github.com/agorlov/lipid/issues"
     },    
     "require": {
         "php": ">= 7.1",
