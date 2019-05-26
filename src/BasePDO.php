@@ -1,6 +1,6 @@
 <?php
 
-namespace AG\WebApp;
+namespace Lipid;
 
 use PDO;
 use PDOStatement;

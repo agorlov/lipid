@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace AG\WebApp\Request;
+namespace Lipid\Request;
 
 use PHPUnit\Framework\TestCase;
-use AG\WebApp\Request\RqGET;
+use Lipid\Request\RqGET;
 
 /**
  * RqGET Test

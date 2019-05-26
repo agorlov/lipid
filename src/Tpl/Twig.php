@@ -1,8 +1,8 @@
 <?php
 
-namespace AG\WebApp\Tpl;
+namespace Lipid\Tpl;
 
-use AG\WebApp\Tpl;
+use Lipid\Tpl;
 
 final class Twig implements Tpl
 {

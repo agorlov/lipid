@@ -1,8 +1,8 @@
 <?php
 
-namespace AG\WebApp\Session;
+namespace Lipid\Session;
 
-use AG\WebApp\Session;
+use Lipid\Session;
 
 /**
  * @todo rename to SessionStd ?

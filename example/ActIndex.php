@@ -2,10 +2,10 @@
 
 namespace ExampleApp;
 
-use AG\WebApp\Action;
-use AG\WebApp\Request;
-use AG\WebApp\Request\RqGET;
-use AG\WebApp\Response;
+use Lipid\Action;
+use Lipid\Request;
+use Lipid\Request\RqGET;
+use Lipid\Response;
 
 /**
  * Start page of example app.

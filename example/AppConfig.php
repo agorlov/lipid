@@ -2,8 +2,8 @@
 
 namespace ExampleApp;
 
-use AG\WebApp\Config;
-use AG\WebApp\Config\CfgArr;
+use Lipid\Config;
+use Lipid\Config\CfgArr;
 
 /**
  * Application configuration parameters

@@ -1,8 +1,8 @@
 <?php
 
-namespace AG\WebApp\Config;
+namespace Lipid\Config;
 
-use AG\WebApp\Config;
+use Lipid\Config;
 
 /**
  * String param form config file

@@ -1,11 +1,11 @@
 <?php
 
-namespace AG\WebApp\Action;
+namespace Lipid\Action;
 
-use AG\WebApp\Action;
-use AG\WebApp\Response;
-use AG\WebApp\Request;
-use AG\WebApp\NotFoundException;
+use Lipid\Action;
+use Lipid\Response;
+use Lipid\Request;
+use Lipid\NotFoundException;
 use Exception;
 
 /**

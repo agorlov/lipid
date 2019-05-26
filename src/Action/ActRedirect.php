@@ -1,9 +1,9 @@
 <?php
 
-namespace AG\WebApp\Action;
+namespace Lipid\Action;
 
-use AG\WebApp\Action;
-use AG\WebApp\Response;
+use Lipid\Action;
+use Lipid\Response;
 
 final class ActRedirect implements Action
 {

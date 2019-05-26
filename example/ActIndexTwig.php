@@ -2,11 +2,11 @@
 
 namespace ExampleApp;
 
-use AG\WebApp\Action;
-use AG\WebApp\Request;
-use AG\WebApp\Request\RqGET;
-use AG\WebApp\Response;
-use AG\WebApp\Tpl;
+use Lipid\Action;
+use Lipid\Request;
+use Lipid\Request\RqGET;
+use Lipid\Response;
+use Lipid\Tpl;
 use ExampleApp\AppTwig;
 
 /**

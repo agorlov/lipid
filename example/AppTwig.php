@@ -2,8 +2,8 @@
 
 namespace ExampleApp;
 
-use AG\WebApp\Tpl;
-use AG\WebApp\Tpl\Twig;
+use Lipid\Tpl;
+use Lipid\Tpl\Twig;
 
 final class AppTwig implements Tpl
 {

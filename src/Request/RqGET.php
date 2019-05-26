@@ -1,7 +1,7 @@
 <?php
-namespace AG\WebApp\Request;
+namespace Lipid\Request;
 
-use AG\WebApp\Request;
+use Lipid\Request;
 
 final class RqGET implements Request
 {

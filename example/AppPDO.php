@@ -2,8 +2,8 @@
 
 namespace ExampleApp;
 
-use AG\WebApp\BasePDO;
-use AG\WebApp\Config;
+use Lipid\BasePDO;
+use Lipid\Config;
 
 final class AppPDO extends BasePDO
 {
