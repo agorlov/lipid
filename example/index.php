@@ -8,8 +8,8 @@
 
 require_once '../vendor/autoload.php';
 
-use AG\WebApp\App\ApplicationStd;
-use AG\WebApp\Response\RespStd;
+use Lipid\App\ApplicationStd;
+use Lipid\Response\RespStd;
 use ExampleApp\ActIndexTwig;
 use ExampleApp\ActLogin;
 use ExampleApp\ActLogout;

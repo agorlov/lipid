@@ -2,15 +2,15 @@
 
 namespace ExampleApp;
 
-use AG\WebApp\Action;
-use AG\WebApp\Request;
-use AG\WebApp\Response;
-use AG\WebApp\Session;
-use AG\WebApp\Session\AppSession;
-use AG\WebApp\AccessDeniedException;
-use AG\WebApp\Config;
-use AG\WebApp\Config\CfgParam;
-//use AG\WebApp\AccessDeniedException;
+use Lipid\Action;
+use Lipid\Request;
+use Lipid\Response;
+use Lipid\Session;
+use Lipid\Session\AppSession;
+use Lipid\AccessDeniedException;
+use Lipid\Config;
+use Lipid\Config\CfgParam;
+//use Lipid\AccessDeniedException;
 use PDO;
 
 final class ActLk implements Action

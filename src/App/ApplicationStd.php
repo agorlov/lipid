@@ -1,17 +1,17 @@
 <?php
 
-namespace AG\WebApp\App;
+namespace Lipid\App;
 
 use Exception;
-use AG\WebApp\App;
-use AG\WebApp\Response;
-use AG\WebApp\Response\RespStd;
-use AG\WebApp\Action;
-use AG\WebApp\Action\ActRouted;
-use AG\WebApp\Request;
-use AG\WebApp\Request\RqSERVER;
-use AG\WebApp\NotFoundException;
-use AG\WebApp\AccessDeniedException;
+use Lipid\App;
+use Lipid\Response;
+use Lipid\Response\RespStd;
+use Lipid\Action;
+use Lipid\Action\ActRouted;
+use Lipid\Request;
+use Lipid\Request\RqSERVER;
+use Lipid\NotFoundException;
+use Lipid\AccessDeniedException;
 
 final class ApplicationStd implements App
 {

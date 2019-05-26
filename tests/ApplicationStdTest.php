@@ -1,13 +1,13 @@
 <?php
 // declare(strict_types=1);
 
-namespace AG\WebApp;
+namespace Lipid;
 
 use PHPUnit\Framework\TestCase;
-use AG\WebApp\App\ApplicationStd;
-use AG\WebApp\Action;
-use AG\WebApp\Request;
-use AG\WebApp\Response;
+use Lipid\App\ApplicationStd;
+use Lipid\Action;
+use Lipid\Request;
+use Lipid\Response;
 
 final class ApplicationStdTest extends TestCase
 {

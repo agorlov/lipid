@@ -1,7 +1,7 @@
 <?php
-namespace AG\WebApp\Response;
+namespace Lipid\Response;
 
-use AG\WebApp\Response;
+use Lipid\Response;
 
 final class RespStd implements Response
 {

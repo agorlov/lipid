@@ -1,5 +1,5 @@
 <?php
-namespace AG\WebApp;
+namespace Lipid;
 
 interface Response
 {
