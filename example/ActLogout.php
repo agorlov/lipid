@@ -2,13 +2,13 @@
 
 namespace ExampleApp;
 
-use AG\WebApp\Action;
-use AG\WebApp\Action\ActRedirect;
-use AG\WebApp\Request;
-use AG\WebApp\Request\RqGET;
-use AG\WebApp\Response;
-use AG\WebApp\Session;
-use AG\WebApp\Session\AppSession;
+use Lipid\Action;
+use Lipid\Action\ActRedirect;
+use Lipid\Request;
+use Lipid\Request\RqGET;
+use Lipid\Response;
+use Lipid\Session;
+use Lipid\Session\AppSession;
 
 final class ActLogout implements Action
 {
@@ -30,7 +30,7 @@ final class ActLogout implements Action
             return $this->redirect->handle($resp);
         }
 
-        return $this->response->withBody(
+        return $resp->withBody(
             "You are not logged in."
         );
     }
