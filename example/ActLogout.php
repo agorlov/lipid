@@ -30,7 +30,7 @@ final class ActLogout implements Action
             return $this->redirect->handle($resp);
         }
 
-        return $this->response->withBody(
+        return $resp->withBody(
             "You are not logged in."
         );
     }
