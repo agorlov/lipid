@@ -11,11 +11,11 @@ Create app directory:
 $ mkdir testapp
 ```
 
-Create ``composer.json`` with such code:
+Create ``composer.json`` like this:
 ```json
 {
     "require": {
-        "agorlov/ObjectMVC": "master@dev"
+        "agorlov/lipid": "master@dev"
     },
     "repositories": [
         {
@@ -35,6 +35,17 @@ Start with example app:
 
 index.php:
 ```php
+<?php
+
+require_once './vendor/autoload.php';
+
+use Lipid\App\ApplicationStd;
+use Lipid\Response\RespStd;
+use ExampleApp\ActIndex;
+use ExampleApp\ActLogin;
+use ExampleApp\ActLogout;
+use ExampleApp\ActLk;
+
 (new ApplicationStd(
     [
         '/' => new ActIndex(),
