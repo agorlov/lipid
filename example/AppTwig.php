@@ -14,11 +14,11 @@ final class AppTwig implements Tpl
     private $env;
     private $tplName;
 
-    public function __construct(string $tplName, Tpl $tpl = null, Request $ENV = null)
+    public function __construct(string $tplName, Tpl $tpl = null, Request $env = null)
     {
         $this->tplName = $tplName;
         $this->tpl = $tpl;
-        $this->env = $ENV ?? new RqENV();
+        $this->env = $env ?? new RqENV();
     }
 
     private function tpl(): Tpl
