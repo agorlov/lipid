@@ -127,7 +127,7 @@ public function __construct(
     $this->rqPOST = $req ?? new RqGET();
     $this->rqGET = $req ?? new RqGET();
     $this->db = $db ?? new AppPDO;
-    $this->config = $config ?? new AppConfig;
+    $this->config = $config ?? new CfgFile;
     $this->env = $env ?? new AppEnv;
     $this->tpl = $tpl ?? new AppTpl
 }
