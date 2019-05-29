@@ -10,7 +10,6 @@ use Lipid\Request;
 use Lipid\Response;
 use Lipid\NotFoundException;
 
-
 /**
  * RqGET Test
  *
@@ -47,7 +46,6 @@ final class ActRoutedTest extends TestCase
                 return $this;
             }
         };
-
     }
 
     public function testRoot(): void
@@ -138,7 +136,5 @@ final class ActRoutedTest extends TestCase
         };
 
         (new ActRouted($request, [ '/page' => $this->action ]))->handle($this->response);
-
-        
-    }     
+    }
 }
