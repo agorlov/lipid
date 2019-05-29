@@ -1,8 +1,6 @@
 # Lipid
 
-[![Hits-of-Code](https://hitsofcode.com/github/agorlov/lipid)](https://hitsofcode.com/view/github/agorlov/lipid)
-
-[![codecov](https://codecov.io/gh/agorlov/lipid/branch/master/graph/badge.svg)](https://codecov.io/gh/agorlov/lipid)
+[![Hits-of-Code](https://hitsofcode.com/github/agorlov/lipid)](https://hitsofcode.com/view/github/agorlov/lipid) [![Maintainability](https://api.codeclimate.com/v1/badges/81625ae51d51bd721b46/maintainability)](https://codeclimate.com/github/agorlov/lipid/maintainability) [![codecov](https://codecov.io/gh/agorlov/lipid/branch/master/graph/badge.svg)](https://codecov.io/gh/agorlov/lipid)
 
 Lipid is an objects designed microframework for PHP web apps.
 
