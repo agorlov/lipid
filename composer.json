@@ -40,7 +40,7 @@
             "phpcbf --standard=PSR2 --ignore=example/cache/ src/ example/ tests/"
         ],
         "test": [
-            "vendor/bin/phpunit --bootstrap ./tests/bootstrap.php --testdox --color -v tests/"
+            "vendor/bin/phpunit --coverage-text --bootstrap ./tests/bootstrap.php --testdox --color -v tests/"
         ]
     }    
 }
