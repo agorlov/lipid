@@ -1,3 +1,4 @@
 /composer.lock
 example/cache/
 .phpunit.result.cache
+clover.xml

@@ -14,10 +14,10 @@
         <testsuite name="NAME tests">
             <directory suffix=".php">./tests/</directory>
         </testsuite>
-    </testsuites>
+    </testsuites>    
     <logging>
-        <log type="coverage-text" target="php://stdout" showUncoveredFiles="true"/>
-    </logging>
+        <log type="coverage-clover" target="clover.xml"/>
+    </logging>    
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">src</directory>
