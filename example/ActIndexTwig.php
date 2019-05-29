@@ -29,8 +29,8 @@ final class ActIndexTwig implements Action
         Tpl $tpl = null,
         Config $cfgFile = null
     ) {
-        $this->rqGet = $req ?? new RqGET();
-        $this->rqEnv = $req ?? new RqENV();
+        $this->rqGet = $reqGet ?? new RqGET();
+        $this->rqEnv = $env ?? new RqENV();
         $this->tpl = $tpl ?? new AppTwig('index.twig');
         $this->cfg = $cfgFile ?? new CfgFile();
     }

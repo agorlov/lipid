@@ -30,7 +30,7 @@ class BasePDO extends PDO
     {
         static $cachedPDO;
         if ($cachedPDO) {
-            return $cachePDO;
+            return $cachedPDO;
         }
 
         $config = $this->config;
@@ -83,12 +83,12 @@ class BasePDO extends PDO
 
     public function lastInsertId($seqname = null): string
     {
-        return $this->pdo()->lastInsertId($name);
+        return $this->pdo()->lastInsertId($seqname);
     }
 
-    public function prepare($statement, $driver_options = null): PDOStatement
+    public function prepare($statement, $driverOptions = null): PDOStatement
     {
-        return $this->pdo()->prepare($statement, $driver_options);
+        return $this->pdo()->prepare($statement, $driverOptions);
     }
 
     public function query(string $statement) : PDOStatement
@@ -98,7 +98,7 @@ class BasePDO extends PDO
 
     public function quote($string, $paramtype = null)
     {
-        return $this->pdo()->quote($string, $parameter_type);
+        return $this->pdo()->quote($string, $paramtype);
     }
 
     public function rollBack() : bool
