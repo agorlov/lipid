@@ -32,7 +32,7 @@ final class ActIndexTwig implements Action
         $this->rqGet = $reqGet ?? new RqGET();
         $this->rqEnv = $env ?? new RqENV();
         $this->tpl = $tpl ?? new AppTwig('index.twig');
-        $this->cfg = $cfgFile ?? new CfgFile();
+        $this->cfg = $cfgFile ?? new Cfg();
     }
 
     public function handle(Response $resp): Response
@@ -46,6 +46,7 @@ final class ActIndexTwig implements Action
                 'test' => $test,
                 'USER' => $this->rqEnv->param('USER'),
                 'cfgTEST' => $this->cfg->param('TEST'),
+                'cfgDBUSER' => $this->cfg->param('dbuser'),
             ])
         );
     }
