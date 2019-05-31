@@ -39,8 +39,8 @@ final class Cfg implements Config
     /**
      * By default we get config from current work directory
      *
-     * @param string $cfgPath path to config php file
-     * @param Config $cfg
+     * @param Config $creds creds.php
+     * @param Config $config config.php file
      */
     public function __construct(Config $creds = null, Config $config = null)
     {

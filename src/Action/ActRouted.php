@@ -6,6 +6,7 @@ use Lipid\Action;
 use Lipid\Response;
 use Lipid\Request;
 use Lipid\NotFoundException;
+use Lipid\Request\RqSERVER;
 use Exception;
 
 /**
@@ -54,6 +55,11 @@ final class ActRouted implements Action
         }
 
         $path = parse_url($requestUri)['path'];
+        if (! (is_string($path) && strlen($path) > 0) ) {
+            throw new Exception("Unrecognized path in REQUEST_URI");
+        }
+
+
         $path = '/' . rtrim(substr($path, 1), '/');
 
         if (! array_key_exists($path, $this->actionMap)) {

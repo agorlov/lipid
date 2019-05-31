@@ -14,7 +14,7 @@ final class Twig implements Tpl
      * Constructor.
      *
      * @param string $tplName template file name
-     * @param string|\Twig\Tenvironment $tplPath directory with templates
+     * @param string|\Twig\Environment $tplPath directory with templates
      */
     public function __construct(string $tplName, $tplPath)
     {

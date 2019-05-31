@@ -1,0 +1,20 @@
+parameters:
+    #bootstrap: %currentWorkingDirectory%/../../../phpstan-bootstrap.php
+    ignoreErrors:
+        # Implementation feature
+        - '#Lipid\\BasePDO::__construct\(\) does not call parent constructor from PDO#'
+
+        # https://github.com/phpstan/phpstan#ignore-error-messages-with-regular-expressions
+        -
+            message: '#Access to an undefined property Lipid\\Response::\$headers#'
+            path: %currentWorkingDirectory%/tests/ActRedirectTest.php
+        -
+            message: "#Offset 'path' does not exist on array()#"
+            path: %currentWorkingDirectory%/src/Action/ActRouted.php
+
+
+    autoload_files:
+        -  %currentWorkingDirectory%/vendor/autoload.php
+    autoload_directories:
+        - %currentWorkingDirectory%/src
+        - %currentWorkingDirectory%/tests
