@@ -20,7 +20,8 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.4",
-        "phpunit/phpunit": "^8"
+        "phpunit/phpunit": "^8",
+        "phpstan/phpstan": "^0.11.8"
     },
 
     "autoload": {
@@ -41,6 +42,9 @@
         ],
         "test": [
             "vendor/bin/phpunit --coverage-text --bootstrap ./tests/bootstrap.php --testdox --color -v tests/"
+        ],
+        "phpstan": [
+            "phpstan analyse --error-format=table --no-progress -lmax -c phpstan.neon src/ tests/"
         ]
     }    
 }

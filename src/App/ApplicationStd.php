@@ -23,7 +23,7 @@ final class ApplicationStd implements App
      *
      * @param Action|array $action action to start (see ActRouted)
      * @param Response $response HTTP Response
-     * @param Request $request HTTP Request
+     * @param Request $SERVER \$_SERVER (RqSERVER)
      */
     public function __construct($action, Response $response = null, Request $SERVER = null)
     {
