@@ -31,6 +31,6 @@ final class CfgTest extends TestCase
         $this->assertEquals(
             'asdf',
             $cfg->param('param')
-        );        
-    }   
+        );
+    }
 }

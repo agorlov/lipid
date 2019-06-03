@@ -9,6 +9,7 @@ use Lipid\Action;
 use Lipid\Request;
 use Lipid\Response;
 use Lipid\NotFoundException;
+use Exception;
 
 /**
  * RqGET Test
@@ -65,6 +66,8 @@ final class ActRoutedTest extends TestCase
 
     public function testRootRoot(): void
     {
+        $this->expectException(Exception::class);
+
         $request = new class() implements Request
         {
             public function param($param)
@@ -75,7 +78,7 @@ final class ActRoutedTest extends TestCase
 
         (new ActRouted($request, [ '/' => $this->action ]))->handle($this->response);
 
-        $this->assertTrue($this->action->isInvoked);
+        // $this->assertTrue($this->action->isInvoked);
     }
 
     public function testPage(): void

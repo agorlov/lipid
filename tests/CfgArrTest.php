@@ -27,5 +27,5 @@ final class CfgArrTest extends TestCase
     {
         $this->expectException(Exception::class);
         (new CfgArr(['paramNotInConfig' => 123]))->param('param');
-    }     
+    }
 }
