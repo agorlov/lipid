@@ -67,7 +67,7 @@ final class Cfg implements Config
     public function param($name)
     {
         try {
-            return $this->creds->call($this)->param($name);            
+            return $this->creds->call($this)->param($name);
         } catch (Exception $e) {
             return $this->cfg->call($this)->param($name);
         }

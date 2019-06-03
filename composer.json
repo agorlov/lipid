@@ -26,19 +26,15 @@
 
     "autoload": {
         "classmap": [
-            "src/",
-            "example/"
+            "src/"
         ]
     },
     "scripts": {
-        "example" : [
-            "php -S localhost:8000 -t example/"
-        ],
         "phpcs": [
-            "phpcs --standard=PSR2 --colors --ignore=example/cache/ src/ example/ tests/"
+            "phpcs --standard=PSR2 --colors src/ tests/"
         ],
         "phpcs-fix": [
-            "phpcbf --standard=PSR2 --ignore=example/cache/ src/ example/ tests/"
+            "phpcbf --standard=PSR2 src/ tests/"
         ],
         "test": [
             "vendor/bin/phpunit --coverage-text --bootstrap ./tests/bootstrap.php --testdox --color -v tests/"

@@ -21,5 +21,5 @@ final class CfgFileTest extends TestCase
             'asdf',
             (new CfgFile(__DIR__ . '/data/config.php'))->param('param')
         );
-    }   
+    }
 }

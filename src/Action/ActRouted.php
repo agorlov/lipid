@@ -55,10 +55,9 @@ final class ActRouted implements Action
         }
 
         $path = parse_url($requestUri)['path'];
-        if (! (is_string($path) && strlen($path) > 0) ) {
-            throw new Exception("Unrecognized path in REQUEST_URI");
+        if (! (is_string($path) && strlen($path) > 0)) {
+            throw new Exception("Unrecognized path in REQUEST_URI=$requestUri");
         }
-
 
         $path = '/' . rtrim(substr($path, 1), '/');
 
