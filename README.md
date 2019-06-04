@@ -60,10 +60,10 @@ use ExampleApp\ActLk;
 ```
 
 Create your own Action:
-@todo ...
+@todo #29 Describe how to create Action in README.md
 
 Create your own Template:
-@todo ...
+@todo #29 Describe how to create template in README.md
 
 
 
