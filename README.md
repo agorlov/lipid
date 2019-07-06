@@ -24,7 +24,12 @@ Create ``composer.json`` like this:
             "type": "vcs",
             "url":  "git@github.com:agorlov/lipid"
         }
-    ]
+    ],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    }    
 }
 ```
 Run composer update:
@@ -35,36 +40,116 @@ $ composer update
 
 Start with example app:
 
-index.php:
+``testapp/index.php:``
+
 ```php
 <?php
 
 require_once './vendor/autoload.php';
 
 use Lipid\App\ApplicationStd;
-use Lipid\Response\RespStd;
-use ExampleApp\ActIndex;
-use ExampleApp\ActLogin;
-use ExampleApp\ActLogout;
-use ExampleApp\ActLk;
+use MyApp\ActIndex;
 
 (new ApplicationStd(
     [
         '/' => new ActIndex(),
-        '/login' => new ActLogin(),
-        '/logout' => new ActLogout(),
-        '/lk' => new ActLk(),
-    ],
-    new RespStd
+        //'/login' => new ActLogin(),
+        //'/logout' => new ActLogout(),
+        //'/note' => new ActNote(),
+    ]
 ))->start();
+
 ```
 
 Create your own Action:
-@todo #29 Describe how to create Action in README.md
+
+``testapp/src/ActIndex.php``
+
+```php
+<?php
+
+namespace MyApp;
+
+use Lipid\Action;
+use Lipid\Request;
+use Lipid\Response;
+use Lipid\Request\RqGET;
+use Lipid\Tpl\Twig;
+
+final class ActIndex implements Action {
+    private $GET;
+    private $tpl;
+
+    public function __construct(
+        Request $GET = null,
+        Tpl $tpl = null
+    )
+    {
+        $this->GET = $GET ?? new RqGET();
+        $this->tpl = $tpl ?? new Twig('index.twig', getcwd() . '/tpl');
+    }
+
+    public function handle(Response $resp): Response
+    {
+        $name = $this->GET->param('name');
+
+        return $resp->withBody(
+                $this->tpl->render([
+                    'name' => $name
+                ])
+        );
+    }
+}
+```
 
 Create your own Template:
-@todo #29 Describe how to create template in README.md
+``testapp/tpl/index.twig``
 
+```twig
+{# My First Template #}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>I'am Lipid :o)</title>
+</head>
+<body>
+
+
+  {% if name %}
+  <p>
+    <i>Lipid:</i> Glad to see you, <b>{{ name }}!</b><br>
+    <i>Lipid:</i> Let's create human-oriented software models. It's time to talk to the computer in our language.
+  </p>
+  {% else %}
+  <h1>I'am Lipid. Try me!</h1>
+
+  <form method="GET" action="">
+    <input type="text" name="name" value="" placeholder="Your name">
+    <input type="submit" value="Greet!">
+  </form>
+  {% endif %}
+
+</body>
+</html>
+```
+
+Now update autoload:
+
+```
+$ composer update
+```
+
+Start your app from command line:
+
+```
+$ php -S localhost 8000 index.php
+```
+
+Finaly open browser:
+http://localhost:8000
+>>>>>>> Stashed changes
+
+Enjoy Result.
 
 
 ## Actions
