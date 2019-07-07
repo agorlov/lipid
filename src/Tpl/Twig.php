@@ -13,6 +13,7 @@ final class Twig implements Tpl
     /**
      * Constructor.
      *
+     * @SuppressWarnings("ElseExpression")
      * @param string $tplName template file name
      * @param string|\Twig\Environment $tplPath directory with templates
      */

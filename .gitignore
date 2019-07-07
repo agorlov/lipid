@@ -3,3 +3,4 @@ example/cache/
 .phpunit.result.cache
 clover.xml
 coverage.sh
+vendor
