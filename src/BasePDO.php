@@ -14,6 +14,7 @@ use PDOStatement;
  *   dbuser
  *   dbpass
  *
+ * @SuppressWarnings("TooManyPublicMethods")
  * @author agorlov
  */
 class BasePDO extends PDO

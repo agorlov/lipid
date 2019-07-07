@@ -262,3 +262,23 @@ $ composer tests
 git commit -m 'Thats was done closes #123' -a
 git push --set-upstream origin Issue123
 ```
+
+
+## PHPMD
+
+To disable some nasty rule, add comment:
+
+1. run phpmd: ``$ composer phpmd-xml``
+2. look at rule name
+3. add string ``@SuppressWarnings("rule name")`` to phpdoc block of method or class
+
+```
+/**
+ * Class Title
+ *
+ * ..
+ * @SuppressWarnings("ElseExpression")
+ * ..
+ */
+```
+
