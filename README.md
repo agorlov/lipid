@@ -38,7 +38,7 @@ Run composer update:
 $ composer update
 ```
 
-Start with example app. Run bootstrapping:
+Lipid is installed, start with example app, run:
 
 ```sh
 $ vendor/bin/bootstrap
@@ -47,9 +47,9 @@ $ vendor/bin/bootstrap
 
 3 files will be created:
 
-``index.php`` - it's your app, it consists of actions-objects for each page or request;
-``src/ActIndex.php`` - it's example action for main page;
-``tpl/index.twig`` - it's example index page template. 
+- ``index.php`` - it's your app, it consists of actions-objects for each page or request;
+- ``src/ActIndex.php`` - it's example action for main page;
+- ``tpl/index.twig`` - it's example index page template. 
 
 
 Now update autoload:
@@ -58,7 +58,7 @@ Now update autoload:
 $ composer update
 ```
 
-And start your app from command line:
+And start your app:
 
 ```
 $ php -S localhost:8000 index.php
