@@ -38,100 +38,19 @@ Run composer update:
 $ composer update
 ```
 
-Start with example app:
+Start with example app. Run bootstrapping:
 
-``testapp/index.php:``
-
-```php
-<?php
-
-require_once './vendor/autoload.php';
-
-use Lipid\App\ApplicationStd;
-use MyApp\ActIndex;
-
-(new ApplicationStd(
-    [
-        '/' => new ActIndex(),
-        //'/login' => new ActLogin(),
-        //'/logout' => new ActLogout(),
-        //'/note' => new ActNote(),
-    ]
-))->start();
+```sh
+$ vendor/bin/bootstrap
 
 ```
 
-Create your own Action:
+3 files will be created:
 
-``testapp/src/ActIndex.php``
+``index.php`` - it's your app, it consists of actions-objects for each page or request;
+``src/ActIndex.php`` - it's example action for main page;
+``tpl/index.twig`` - it's example index page template. 
 
-```php
-<?php
-
-namespace MyApp;
-
-use Lipid\Action;
-use Lipid\Request;
-use Lipid\Response;
-use Lipid\Request\RqGET;
-use Lipid\Tpl\Twig;
-
-final class ActIndex implements Action {
-    private $GET;
-    private $tpl;
-
-    public function __construct(
-        Request $GET = null,
-        Tpl $tpl = null
-    )
-    {
-        $this->GET = $GET ?? new RqGET();
-        $this->tpl = $tpl ?? new Twig('index.twig', getcwd() . '/tpl');
-    }
-
-    public function handle(Response $resp): Response
-    {
-        $name = $this->GET->param('name');
-
-        return $resp->withBody(
-                $this->tpl->render([
-                    'name' => $name
-                ])
-        );
-    }
-}
-```
-
-Create your own Template:
-``testapp/tpl/index.twig``
-
-```twig
-{# My First Template #}
-<!DOCTYPE html>
-<html>
-<head>
-  <title>I'am Lipid :o)</title>
-</head>
-<body>
-
-
-  {% if name %}
-  <p>
-    <i>Lipid:</i> Glad to see you, <b>{{ name }}!</b><br>
-    <i>Lipid:</i> Let's create human-oriented software models. It's time to talk to the computer in our language.
-  </p>
-  {% else %}
-  <h1>I'am Lipid. Try me!</h1>
-
-  <form method="GET" action="">
-    <input type="text" name="name" value="" placeholder="Your name">
-    <input type="submit" value="Greet!">
-  </form>
-  {% endif %}
-
-</body>
-</html>
-```
 
 Now update autoload:
 
@@ -139,20 +58,19 @@ Now update autoload:
 $ composer update
 ```
 
-Start your app from command line:
+And start your app from command line:
 
 ```
-$ php -S localhost 8000 index.php
+$ php -S localhost:8000 index.php
 ```
 
 Finaly open browser:
 http://localhost:8000
->>>>>>> Stashed changes
 
-Enjoy Result.
+Enjoy Result and start creating your app pages.
 
 
-## Actions
+## How to create Actions (pages or api-responses)
 
 **ActIndex.php**
 

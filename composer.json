@@ -43,11 +43,12 @@
         "phpstan": [
             "phpstan analyse --error-format=table --no-progress -lmax -c phpstan.neon src/ tests/"
         ],
-	"phpmd": [
-	    "phpmd . text cleancode,codesize,controversial,design,naming --exclude 'vendor,example'"
-	],
-	"phpmd-xml": [
-	    "phpmd . xml cleancode,codesize,controversial,design,naming --exclude 'vendor,example'"
-	]
-    }    
+	    "phpmd": [
+	        "phpmd . text cleancode,codesize,controversial,design,naming --exclude 'vendor,example'"
+        ],
+	    "phpmd-xml": [
+	        "phpmd . xml cleancode,codesize,controversial,design,naming --exclude 'vendor,example'"
+	    ]
+    },
+    "bin": [ "bin/bootstrap" ]
 }

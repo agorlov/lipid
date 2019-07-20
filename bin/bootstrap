@@ -1,0 +1,176 @@
+#!/usr/bin/env php
+<?php
+
+$baseDir = dirname(dirname(__DIR__));
+$srcDir = $baseDir . '/src';
+$twigDir = $baseDir . '/tpl';
+
+$indexFile = $baseDir . '/index.php';
+$actionFile = $srcDir . '/ActIndex.php';
+$indexTplFile = $twigDir . '/index.twig';
+
+
+echo "The birth of new app...";
+
+
+
+if (file_exists($indexFile)) {
+    die("index.php is already exists. You may have already created the app before. Do nothing.\n");
+}
+
+if (is_dir($srcDir)) {
+    die("$srcDir is already exists. You may have already created the app before. Do nothing.\n");
+}
+
+
+$res = file_put_contents(
+    $indexFile,
+    <<<'INDEXFILE'
+<?php
+
+require_once './vendor/autoload.php';
+
+use Lipid\App\ApplicationStd;
+use MyApp\ActIndex;
+
+/**
+ * My web application
+ *
+ * Short app description
+ *
+ * @author {- write your name in history -}
+ */
+(new ApplicationStd(
+    [
+        '/' => new ActIndex(),
+        //'/login' => new ActLogin(),
+        //'/logout' => new ActLogout(),
+        //'/note' => new ActNote(),
+    ]
+))->start();
+
+INDEXFILE
+);
+
+if (! $res) {
+    die("Could not create file: $indexFile\n");
+}
+
+$res = mkdir($srcDir);
+if (! $res) {
+    die("Could not create dir: $srcDir\n");
+}
+
+
+$res = file_put_contents(
+    $actionFile,
+    <<<'ACTFILE'
+<?php
+
+namespace MyApp;
+
+use Lipid\Action;
+use Lipid\Request;
+use Lipid\Response;
+use Lipid\Request\RqGET;
+use Lipid\Tpl\Twig;
+
+/**
+ * Index page
+ *
+ * Here, we show greeting from index.twig template.
+ *
+ * @author {- write your name in history -}
+ */
+final class ActIndex implements Action {
+    private $GET;
+    private $tpl;
+
+    public function __construct(
+        Request $GET = null,
+        Tpl $tpl = null
+    )
+    {
+        $this->GET = $GET ?? new RqGET();
+        $this->tpl = $tpl ?? new Twig('index.twig', getcwd() . '/tpl');
+    }
+
+    public function handle(Response $resp): Response
+    {
+        $name = $this->GET->param('name');
+
+        return $resp->withBody(
+                $this->tpl->render([
+                    'name' => $name
+                ])
+        );
+    }
+}
+ACTFILE
+);
+
+if (! $res) {
+    die("Could not create file: $actionFile");
+}
+
+
+
+$res = mkdir($twigDir);
+if (! $res) {
+    die("Could not create dir: $twigDir");
+}
+
+
+$res = file_put_contents(
+    $indexTplFile,
+    <<<'TPLFILE'
+{# My First Template #}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>I'am Lipid :o)</title>
+</head>
+<body>
+
+
+  {% if name %}
+  <p>
+    <i>Lipid:</i> Glad to see you, <b>{{ name }}!</b><br>
+    <i>Lipid:</i> Let's create human-oriented software models. 
+    It's time to talk to the computer in our language.
+  </p>
+  {% else %}
+  <h1>I'am Lipid. Try me!</h1>
+
+  <form method="GET" action="">
+    <input type="text" name="name" value="" placeholder="Your name">
+    <input type="submit" value="Greet!">
+  </form>
+  {% endif %}
+
+</body>
+</html>
+
+TPLFILE
+);
+
+if (! $res) {
+    die("Could not create dir: $indexTplFile\n");
+}
+
+sleep(2);
+echo "done!\n\n";
+
+sleep(1);
+echo <<<INSTRUCTIONS
+Now update autoload:
+
+$ composer update
+
+Start your app:
+
+$ php -S localhost:8000 index.php
+
+Enjoy the creation.
+
+INSTRUCTIONS;
