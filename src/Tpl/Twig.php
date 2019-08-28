@@ -15,11 +15,12 @@ final class Twig implements Tpl
      *
      * @SuppressWarnings("ElseExpression")
      * @param string $tplName template file name
-     * @param string|\Twig\Environment $tplPath directory with templates
+     * @param string|null\Twig\Environment $tplPath directory with templates
      */
-    public function __construct(string $tplName, $tplPath)
+    public function __construct(string $tplName, $tplPath = null)
     {
         $this->tplName = $tplName;
+        $tplPath = $tplPath ?? getcwd() . '/tpl';
         if ($tplPath instanceof \Twig\Environment) {
             $this->twig = $tplPath;
         } elseif (is_string($tplPath)) {
