@@ -4,3 +4,4 @@ example/cache/
 clover.xml
 coverage.sh
 vendor
+.idea/

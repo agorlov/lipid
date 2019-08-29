@@ -16,7 +16,8 @@
     },    
     "require": {
         "php": ">= 7.1",
-        "twig/twig": "^2.0"
+        "twig/twig": "^2.0",
+      "ext-json": "*"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.4",
