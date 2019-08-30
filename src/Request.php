@@ -7,10 +7,6 @@ namespace Lipid;
  *
  * Some part of request, it may be GET/POST param
  *
- * @todo Create individual interfaces for each kind of Request/* ENV/POST/GET
- *       For example POST, is not only param, but also body, files
- *       Cookie has also setting method.
- *
  * @author agorlov
  */
 interface Request
