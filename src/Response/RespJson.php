@@ -10,7 +10,8 @@ use Lipid\Response;
  * ```php
  *   return new RespJson(['result' => 'ok', 'message' => $res], $resp);
  * ```
- * @author
+ * @author agorlov
+ * @author Klepatskiy
  */
 final class RespJson implements Response
 {
