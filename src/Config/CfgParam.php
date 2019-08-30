@@ -11,7 +11,8 @@ use Lipid\Config;
  * or
  * new CfgParam('key', Config)->val(): string;
  *
- * @todo Doubtful usefulness of this object.
+ * Doubtful usefulness of this object.
+ 
  * @author agorlov
  */
 final class CfgParam // implements string
