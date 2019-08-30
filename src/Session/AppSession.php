@@ -5,7 +5,7 @@ namespace Lipid\Session;
 use Lipid\Session;
 
 /**
- * @todo rename to SessionStd ?
+ * @todo #80 rename to SessionStd
  */
 final class AppSession implements Session
 {
