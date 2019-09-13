@@ -8,6 +8,7 @@ install:
 - composer install --no-ansi
 - wget https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
 - mv test-reporter-latest-linux-amd64 ../cc-test-reporter
+- chmod +x ../cc-test-reporter
 #- sudo pecl install xdebug
 #- echo "zend_extension=xdebug.so" > xdebug.ini    
 
