@@ -1,0 +1,17 @@
+architect:
+  - agorlov
+
+install:
+- composer install --no-ansi
+#- sudo pecl install xdebug
+#- echo "zend_extension=xdebug.so" > xdebug.ini    
+
+merge:
+  script: |-
+    echo "MERGE"
+    composer phpcs
+    composer test
+    composer phpstan
+    ./coverage.sh
+    #composer phpmd
+  commanders: []

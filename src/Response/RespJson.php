@@ -2,6 +2,7 @@
 namespace Lipid\Response;
 
 use Lipid\Response;
+use Exception;
 
 /**
  * Response json (Decorator RespStd)
@@ -42,7 +43,11 @@ final class RespJson implements Response
 
     public function print(): void
     {
-        $this->withBody(json_encode($this->json, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))
+        $jsonString = json_encode($this->json, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+	if ($jsonString === false) {
+            throw new Exception('Failed to json encode: ' . var_export($this->json));
+        }
+        $this->withBody($jsonString)
             ->withHeaders(['Content-type' => 'application/json'])
             ->print();
     }

@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-$baseDir = dirname(dirname(__DIR__));
+$baseDir = getcwd();
 $srcDir = $baseDir . '/src';
 $twigDir = $baseDir . '/tpl';
 
@@ -9,6 +9,10 @@ $indexFile = $baseDir . '/index.php';
 $actionFile = $srcDir . '/ActIndex.php';
 $indexTplFile = $twigDir . '/index.twig';
 
+
+if (! file_exists('composer.json')) {
+    die("May be wrong directory, you shuld start this in the root of your app. Here shuld be composer.json file\n");
+}
 
 echo "The birth of new app...";
 
@@ -136,8 +140,8 @@ $res = file_put_contents(
   {% if name %}
   <p>
     <i>Lipid:</i> Glad to see you, <b>{{ name }}!</b><br>
-    <i>Lipid:</i> Let's create human-oriented software models. 
-    It's time to talk to the computer in our language.
+    <i>Lipid:</i> Let's create human-oriented software models.
+    It's time to talk to computer in human language.
   </p>
   {% else %}
   <h1>I'am Lipid. Try me!</h1>
@@ -158,19 +162,31 @@ if (! $res) {
     die("Could not create dir: $indexTplFile\n");
 }
 
+$composerJson = json_decode(
+    file_get_contents($baseDir . '/composer.json'),
+    true
+);
+$composerJson['autoload']['classmap'] = [ 'src/' ];
+file_put_contents(
+    $baseDir . '/composer.json',
+    json_encode(
+        $composerJson,
+        JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES
+    )
+);
+
 sleep(2);
 echo "done!\n\n";
 
+system("composer dump-autoload");
+
 sleep(1);
 echo <<<INSTRUCTIONS
-Now update autoload:
-
-$ composer update
-
 Start your app:
 
 $ php -S localhost:8000 index.php
 
+Open browser: http://localhost:8000/
 Enjoy the creation.
 
 INSTRUCTIONS;
