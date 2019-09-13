@@ -1,6 +1,9 @@
 architect:
   - agorlov
 
+decrypt:
+  repo/coverage.sh: "repo/coverage.sh.asc"
+
 install:
 - composer install --no-ansi
 #- sudo pecl install xdebug
