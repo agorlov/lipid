@@ -12,6 +12,6 @@ merge:
     composer phpcs
     composer test
     composer phpstan
-    ./repo/coverage.sh
+    bash coverage.sh
     #composer phpmd
   commanders: []
