@@ -154,6 +154,8 @@ git push --set-upstream origin Issue123
 
 ## PHPMD
 
+@todo #75 setup and add phpmd to merge checks
+
 To disable some nasty rule, add comment:
 
 1. run phpmd: ``$ composer phpmd-xml``
