@@ -12,7 +12,6 @@ Create app directory:
 ```sh
 $ mkdir testapp
 $ composer require agorlov/lipid
-$ composer dump-autoload
 ```
 
 Lipid is installed, start with example app, run:
@@ -28,12 +27,6 @@ $ vendor/bin/lipidstrap
 - ``src/ActIndex.php`` - it's example action for main page;
 - ``tpl/index.twig`` - it's example index page template. 
 
-
-Now update autoload:
-
-```
-$ composer update
-```
 
 And start your app:
 
