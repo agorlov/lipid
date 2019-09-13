@@ -44,7 +44,7 @@ final class RespJson implements Response
     public function print(): void
     {
         $jsonString = json_encode($this->json, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-	if ($jsonString === false) {
+        if ($jsonString === false) {
             throw new Exception('Failed to json encode: ' . var_export($this->json));
         }
         $this->withBody($jsonString)
