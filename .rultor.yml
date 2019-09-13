@@ -9,7 +9,8 @@ install:
 - wget https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
 - mv test-reporter-latest-linux-amd64 ../cc-test-reporter
 - chmod +x ../cc-test-reporter
-- sudo apt-get install php-xdebug
+- sudo apt-get -q update
+- sudo apt-get -q install php-xdebug
 #- sudo pecl install xdebug
 #- echo "zend_extension=xdebug.so" > xdebug.ini    
 
