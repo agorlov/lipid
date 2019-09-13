@@ -11,37 +11,14 @@ Create app directory:
 
 ```sh
 $ mkdir testapp
-```
-
-Create ``composer.json`` like this:
-```json
-{
-    "require": {
-        "agorlov/lipid": "master@dev"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url":  "git@github.com:agorlov/lipid"
-        }
-    ],
-    "autoload": {
-        "classmap": [
-            "src/"
-        ]
-    }    
-}
-```
-Run composer update:
-
-```
-$ composer update
+$ composer require agorlov/lipid
+$ composer dump-autoload
 ```
 
 Lipid is installed, start with example app, run:
 
 ```sh
-$ vendor/bin/bootstrap
+$ vendor/bin/lipidstrap
 
 ```
 

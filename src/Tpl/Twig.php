@@ -15,7 +15,7 @@ final class Twig implements Tpl
      *
      * @SuppressWarnings("ElseExpression")
      * @param string $tplName template file name
-     * @param string|null\Twig\Environment $tplPath directory with templates
+     * @param string|null|\Twig\Environment $tplPath directory with templates
      */
     public function __construct(string $tplName, $tplPath = null)
     {
