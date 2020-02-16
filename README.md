@@ -59,22 +59,22 @@ class ActIndex implements Action
 
 If we need database or GET params, put it in constructor:
 
-In this example $_GET['test'] -> with RqGET object
+In this example $_GET['test'] -> with $this->GET array
 
 ```php
 
 class ActIndex implements Action
 {
     private $rqGet;
-
-    public function __construct(Request $rqGet = null)
+     
+    public function __construct(array $GET = null)
     {
-        $this->rqGet = $rqGet ?? new RqGET();
+        $this->rqGet = $GET ?? $_GET;
     }
 
     public function handle(Response $resp): Response
     {
-        $test = $this->rqGet->param('test') ?? 'nothing';
+        $test = $this->GET['test'] ?? 'nothing';
 
         return $resp->withBody(
             "Hello, World 2!<br>" . 
@@ -88,7 +88,7 @@ class ActIndex implements Action
 GET request, POST request, Database, Config, Environment, Session:
 ```php
 public function __construct(
-    Request $req = null, 
+    array $GET = null, 
     AppPDO $db = null, 
     Config $config = null, 
     Env $env = null,
@@ -97,8 +97,8 @@ public function __construct(
     // or anything you need for your Action
 ) 
 {
-    $this->rqPOST = $req ?? new RqGET();
-    $this->rqGET = $req ?? new RqGET();
+    $this->POST = $GET ?? $_POST;
+    $this->GET = $GET ?? $_GET;
     $this->db = $db ?? new AppPDO;
     $this->config = $config ?? new CfgFile;
     $this->env = $env ?? new AppEnv;
@@ -114,14 +114,13 @@ public function __construct(
   - small objects, 
   - without extends, 
   - wide use of decorators,
-  - strict piplene: unit tests, PSR2 checker, 
-  - 
-
-inspired by @yegor256 Elegant Objects
+  - strict CI/CD piplene: unit tests, PSR2 checker, 
+  - immutable
+  - inspired by @yegor256 [Elegant Objects](https://www.elegantobjects.org/)
 
 2. Micro-format, like lipid is.
 
-3. 
+3. From ``Lipid framework`` to **Lipid as process** (including design principles, rules, ci/cd)
 
 ## Library development cycle
 
