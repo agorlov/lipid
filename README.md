@@ -45,6 +45,7 @@ Enjoy Result and start creating your app pages.
 **ActIndex.php**
 
 ```php
+<?php
 class ActIndex implements Action
 {
     public function handle(Response $resp): Response
