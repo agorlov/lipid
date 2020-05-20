@@ -63,7 +63,7 @@ If we need database or GET params, put it in constructor:
 In this example $_GET['test'] -> with $this->GET array
 
 ```php
-
+<?php
 class ActIndex implements Action
 {
     private $rqGet;
@@ -88,6 +88,7 @@ class ActIndex implements Action
 
 GET request, POST request, Database, Config, Environment, Session:
 ```php
+<?php
 public function __construct(
     array $GET = null, 
     AppPDO $db = null, 
