@@ -93,7 +93,7 @@ public function __construct(
     array $GET = null, 
     AppPDO $db = null, 
     Config $config = null, 
-    Env $env = null,
+    Request $env = null,
     Session $sess = null,
     Tpl $tpl
     // or anything you need for your Action
@@ -103,7 +103,7 @@ public function __construct(
     $this->GET = $GET ?? $_GET;
     $this->db = $db ?? new AppPDO;
     $this->config = $config ?? new CfgFile;
-    $this->env = $env ?? new AppEnv;
+    $this->env = $env ?? new RqENV;
     $this->tpl = $tpl ?? new AppTpl
 }
 ```
