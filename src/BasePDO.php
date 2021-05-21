@@ -92,9 +92,9 @@ class BasePDO extends PDO
         return $this->pdo()->prepare($statement, $driverOptions);
     }
 
-    public function query(string $statement) : PDOStatement
+    public function query(string $statement, int $fetchMode = null, mixed ...$fetchModeArgs): PDOStatement
     {
-        return $this->pdo()->query($statement);
+        return $this->pdo()->query($statement, $fetchMode, $fetchModeArgs);
     }
 
     public function quote($string, $paramtype = null)
