@@ -3,7 +3,6 @@
 namespace Lipid;
 
 use PDO;
-use PDOStatement;
 
 /**
  * BasePDO - decorator with lazy load
@@ -57,7 +56,7 @@ class BasePDO extends PDO
         return $this->pdo()->commit();
     }
 
-    public function errorCode() : string
+    public function errorCode()
     {
         return $this->pdo()->errorCode();
     }
@@ -67,7 +66,7 @@ class BasePDO extends PDO
         return $this->pdo()->errorInfo();
     }
 
-    public function exec($query) : int
+    public function exec($query)
     {
         return $this->pdo()->exec($query);
     }
@@ -82,17 +81,17 @@ class BasePDO extends PDO
         return $this->pdo()->inTransaction();
     }
 
-    public function lastInsertId($seqname = null): string
+    public function lastInsertId($seqname = null)
     {
         return $this->pdo()->lastInsertId($seqname);
     }
 
-    public function prepare($statement, $driverOptions = null): PDOStatement
+    public function prepare($statement, $driverOptions = null)
     {
         return $this->pdo()->prepare($statement, $driverOptions);
     }
 
-    public function query(string $statement, int $fetchMode = null, mixed ...$fetchModeArgs): PDOStatement
+    public function query(string $statement, int $fetchMode = null, mixed ...$fetchModeArgs)
     {
         return $this->pdo()->query($statement, $fetchMode, $fetchModeArgs);
     }
