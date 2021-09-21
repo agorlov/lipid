@@ -50,5 +50,5 @@
 	        "phpmd . xml cleancode,codesize,controversial,design,naming --exclude 'vendor,example'"
 	    ]
     },
-    "bin": [ "bin/bootstrap" ]
+    "bin": [ "bin/lipidstrap" ]
 }
