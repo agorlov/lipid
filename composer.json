@@ -15,9 +15,8 @@
         "issues": "https://github.com/agorlov/lipid/issues"
     },    
     "require": {
-        "php": ">= 7.1",
-        "twig/twig": "^2.0",
-      "ext-json": "*"
+        "php": ">= 8.1",
+        "twig/twig": "^2.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.4",
