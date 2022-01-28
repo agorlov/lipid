@@ -64,7 +64,7 @@ final class Cfg implements Config
      * @param string $name parameter name in configuration
      * @return mixed
      */
-    public function param($name)
+    public function param(string $name)
     {
         try {
             return $this->creds->call($this)->param($name);
