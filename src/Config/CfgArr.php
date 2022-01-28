@@ -18,7 +18,7 @@ final class CfgArr implements Config
         $this->cfgArr = $cfg;
     }
 
-    public function param($name)
+    public function param(string $name)
     {
         if (! array_key_exists($name, $this->cfgArr)) {
             throw new \Exception("Parameter '$name' not declared in config.");
