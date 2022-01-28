@@ -44,7 +44,7 @@ final class CfgFile implements Config
         };
     }
 
-    public function param($name)
+    public function param(string $name)
     {
         return $this->cfg->call($this)->param($name);
     }
