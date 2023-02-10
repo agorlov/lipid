@@ -48,7 +48,7 @@ final class RespJson implements Response
             throw new Exception('Failed to json encode: ' . var_export($this->json));
         }
         $this->withBody($jsonString)
-            ->withHeaders(['Content-type' => 'application/json'])
+            ->withHeaders(['Content-Type: application/json'])
             ->print();
     }
 }
